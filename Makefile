@@ -13,7 +13,7 @@ SAMPLENAME = amqp.conf.sample
 CONFNAME = $(basename $(SAMPLENAME))
 
 TARGET = res_amqp.so
-OBJECTS = res_amqp.o amqp/cli.o amqp/config.o sub_stasis.o
+OBJECTS = res_amqp.o amqp/cli.o amqp/config.o
 CFLAGS += -I.
 CFLAGS += -DHAVE_STDINT_H=1
 CFLAGS += -Wall -Wextra -Wno-unused-parameter -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Winit-self -Wmissing-format-attribute \
