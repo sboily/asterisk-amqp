@@ -85,9 +85,6 @@
 
 #include "asterisk.h"
 
-#include "asterisk/stasis.h"
-#include "asterisk/stasis_channels.h"
-
 #include "asterisk/module.h"
 #include "asterisk/amqp.h"
 #include "amqp/internal.h"
@@ -96,7 +93,6 @@
 #include <amqp_framing.h>
 #include <amqp_tcp_socket.h>
 
-#include "sub_stasis.h"
 
 #define NUM_ACTIVE_CONNECTION_BUCKETS 31
 #define CHANNEL_ID 1
@@ -358,18 +354,11 @@ static int unload_module(void)
 {
    amqp_cli_unregister();
    amqp_config_destroy();
-   stasis_unsubscribe(sub);
-   sub = NULL;
    return 0;
 }
 
 static int reload_module(void)
 {
-    sub = stasis_subscribe(ast_channel_topic_all(), send_message_to_amqp, NULL);
-    if (!sub) {
-        return AST_MODULE_LOAD_FAILURE;
-    }
-
     if (amqp_config_reload() != 0) {
         return AST_MODULE_LOAD_DECLINE;
     }
