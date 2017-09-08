@@ -55,38 +55,38 @@ struct amqp_conf_general;
 
 /*! \brief Rabbitmq configuration structure */
 struct amqp_conf {
-   /*! The general section configuration options */
-   struct amqp_conf_general *general;
-   /*! Configured connections */
-   struct ao2_container *connections;
+	/*! The general section configuration options */
+	struct amqp_conf_general *general;
+	/*! Configured connections */
+	struct ao2_container *connections;
 };
 
 /*! \brief General configuration options for AMQP */
 struct amqp_conf_general {
-   /*! Enabled by default, disabled if false. */
-   int enabled;
+	/*! Enabled by default, disabled if false. */
+	int enabled;
 };
 
 /*! \brief AMQP per-connection configuration */
 struct amqp_conf_connection {
-   AST_DECLARE_STRING_FIELDS(
-       /*! The name of the connection */
-       AST_STRING_FIELD(name);
-       /*! The URL to connect to */
-       AST_STRING_FIELD(url);
-       /*! The password to use for authentication */
-       AST_STRING_FIELD(password);
-   );
+	AST_DECLARE_STRING_FIELDS(
+	/*! The name of the connection */
+	AST_STRING_FIELD(name);
+	/*! The URL to connect to */
+	AST_STRING_FIELD(url);
+	/*! The password to use for authentication */
+	AST_STRING_FIELD(password);
+	);
 
-   /*! Max allowed frame size */
-   int max_frame_bytes;
-   /*! Number of seconds between heartbeats */
-   int heartbeat_seconds;
+	/*! Max allowed frame size */
+	int max_frame_bytes;
+	/*! Number of seconds between heartbeats */
+	int heartbeat_seconds;
 
-   /*! Parse URL for connection info */
-   char *parsed_url;
-   /*! Parsed info from \a url */
-   struct amqp_connection_info connection_info;
+	/*! Parse URL for connection info */
+	char *parsed_url;
+	/*! Parsed info from \a url */
+	struct amqp_connection_info connection_info;
 };
 
 /*!
@@ -132,7 +132,7 @@ struct amqp_conf *amqp_config_get(void);
  * \return \c NULL on error, or if connection is not configured.
  */
 struct amqp_conf_connection *amqp_config_get_connection(
-   const char *name);
+	const char *name);
 
 /*! @} */
 
