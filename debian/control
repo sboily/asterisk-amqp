@@ -11,3 +11,11 @@ Depends: ${shlibs:Depends}, ${misc:Depends}, asterisk (>= 8:14)
 Description: AMQP module for the Asterisk IPBX
  Connects to an AMQP server to publish messages.
  .
+
+Package: wazo-res-amqp-dev
+Architecture: all
+Section: devel
+Depends: ${misc:Depends}, asterisk-dev (>= 8:14)
+Description: AMQP module for the Asterisk IPBX
+ Connects to an AMQP server to publish messages.
+ .
