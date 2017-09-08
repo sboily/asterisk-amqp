@@ -265,7 +265,7 @@ int amqp_config_init(void)
        "%d", AMQP_DEFAULT_HEARTBEAT);
 
    if (aco_info_init(&cfg_info) != 0) {
-       ast_log(LOG_ERROR, "Failed to initialize config");
+       ast_log(LOG_ERROR, "Failed to initialize config\n");
        aco_info_destroy(&cfg_info);
        return -1;
    }

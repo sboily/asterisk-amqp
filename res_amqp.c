@@ -338,7 +338,7 @@ static int load_module(void)
    active_connections = ao2_container_alloc(NUM_ACTIVE_CONNECTION_BUCKETS,
        amqp_connection_hash, amqp_connection_cmp);
    if (!active_connections) {
-       ast_log(LOG_ERROR, "Allocation failure");
+       ast_log(LOG_ERROR, "Allocation failure\n");
        return AST_MODULE_LOAD_FAILURE;
    }
 
