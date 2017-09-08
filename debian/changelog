@@ -1,0 +1,5 @@
+wazo-res-amqp (0.0.1) wazo-dev; urgency=medium
+
+  * Initial release.
+
+ -- Wazo Maintainers <dev+pkg@wazo.community>  Fri, 08 Sep 2017 13:06:33 -0400
