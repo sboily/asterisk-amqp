@@ -1,3 +1,9 @@
+wazo-res-amqp (0.0.2-1) wazo-dev; urgency=medium
+
+  * force the build against asterisk 14
+
+ -- Wazo Maintainers <dev+pkg@wazo.community>  Tue, 12 Sep 2017 07:39:54 -0400
+
 wazo-res-amqp (0.0.2) wazo-dev; urgency=medium
 
   * rebuild for asterisk 14
