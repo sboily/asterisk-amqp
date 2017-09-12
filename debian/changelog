@@ -1,3 +1,9 @@
+wazo-res-amqp (0.0.3) wazo-dev; urgency=medium
+
+  * add the .so manually in the install file
+
+ -- Wazo Maintainers <dev+pkg@wazo.community>  Tue, 12 Sep 2017 08:33:07 -0400
+
 wazo-res-amqp (0.0.2-1) wazo-dev; urgency=medium
 
   * force the build against asterisk 14
