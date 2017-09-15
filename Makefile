@@ -31,6 +31,7 @@ $(TARGET): $(OBJECTS)
 
 install: $(TARGET)
 	mkdir -p $(DESTDIR)/usr/lib/asterisk/modules
+	mkdir -p $(DESTDIR)/usr/share/asterisk/documentation/thirdparty
 	install -m 644 $(TARGET) $(DESTDIR)/usr/lib/asterisk/modules/
 	install -m 644 documentation/* $(DESTDIR)/usr/share/asterisk/documentation/thirdparty
 	@echo " +----------- res_amqp installed ------------+"
