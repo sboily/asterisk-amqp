@@ -15,7 +15,7 @@ Description: AMQP module for the Asterisk IPBX
 Package: wazo-res-amqp-dev
 Architecture: all
 Section: devel
-Depends: ${misc:Depends}, asterisk-dev (>= 8:14)
+Depends: ${misc:Depends}, asterisk-dev (>= 8:14), librabbitmq-dev
 Description: AMQP module for the Asterisk IPBX
  Connects to an AMQP server to publish messages.
  .
