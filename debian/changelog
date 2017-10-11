@@ -1,3 +1,9 @@
+wazo-res-amqp (0.0.4) wazo-dev; urgency=medium
+
+  * update for asterisk 15.0.0
+
+ -- Wazo Maintainers <dev+pkg@wazo.community>  Wed, 11 Oct 2017 12:49:24 -0400
+
 wazo-res-amqp (0.0.3) wazo-dev; urgency=medium
 
   * add the .so manually in the install file
