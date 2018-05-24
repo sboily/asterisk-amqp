@@ -7,6 +7,12 @@
 # at the top of the source tree.
 #
 
+ASTLIBDIR:=$(shell awk '/moddir/{print $$3}' /etc/asterisk/asterisk.conf 2> /dev/null)
+ifeq ($(strip $(ASTLIBDIR)),)
+	MODULES_DIR:=$(INSTALL_PREFIX)/usr/lib/asterisk/modules
+else
+	MODULES_DIR:=$(INSTALL_PREFIX)$(ASTLIBDIR)
+endif
 INSTALL = install
 ASTETCDIR = $(INSTALL_PREFIX)/etc/asterisk
 SAMPLENAME = amqp.conf.sample
@@ -30,9 +36,9 @@ $(TARGET): $(OBJECTS)
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 install: $(TARGET)
-	mkdir -p $(DESTDIR)/usr/lib/asterisk/modules
+	mkdir -p $(DESTDIR)$(MODULES_DIR)
 	mkdir -p $(DESTDIR)/usr/share/asterisk/documentation/thirdparty
-	install -m 644 $(TARGET) $(DESTDIR)/usr/lib/asterisk/modules/
+	install -m 644 $(TARGET) $(DESTDIR)$(MODULES_DIR)
 	install -m 644 documentation/* $(DESTDIR)/usr/share/asterisk/documentation/thirdparty
 	@echo " +----------- res_amqp installed ------------+"
 	@echo " +                                           +"
