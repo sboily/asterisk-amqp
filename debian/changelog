@@ -1,3 +1,9 @@
+wazo-res-amqp (0.0.6) wazo-dev-stretch; urgency=medium
+
+  * update for asterisk 16
+
+ -- Wazo Maintainers <dev+pkg@wazo.community>  Mon, 22 Oct 2018 09:36:01 -0400
+
 wazo-res-amqp (0.0.5) wazo-dev; urgency=medium
 
   *  update for debian stretch
