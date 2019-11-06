@@ -321,6 +321,7 @@ int ast_amqp_basic_publish(struct ast_amqp_connection *cxn,
 			break;
 		}
 		ast_log(LOG_ERROR, "Error publishing to AMQP: %s\n", err);
+		ao2_unlink(active_connections, cxn);
 		return -1;
 	}
 }
