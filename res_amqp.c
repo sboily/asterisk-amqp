@@ -319,7 +319,7 @@ int ast_amqp_basic_publish(struct ast_amqp_connection *cxn,
 			snprintf(unknown, sizeof(unknown), "code %d", res);
 			err = unknown;
 			break;
-		 }
+		}
 		ast_log(LOG_ERROR, "Error publishing to AMQP: %s\n", err);
 		return -1;
 	}
