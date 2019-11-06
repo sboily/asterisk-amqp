@@ -1,7 +1,7 @@
 /*
  * Asterisk -- An open source telephony toolkit.
  *
- * Copyright 2015-2017 The Wazo Authors  (see the AUTHORS file)
+ * Copyright 2015-2019 The Wazo Authors  (see the AUTHORS file)
  *
  * David M. Lee, II <dlee@digium.com>
  *
@@ -96,8 +96,6 @@
 
 #define NUM_ACTIVE_CONNECTION_BUCKETS 31
 #define CHANNEL_ID 1
-
-static struct stasis_subscription *sub;
 
 static struct ao2_container *active_connections;
 
