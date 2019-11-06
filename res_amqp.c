@@ -312,6 +312,9 @@ int ast_amqp_basic_publish(struct ast_amqp_connection *cxn,
 		case AMQP_STATUS_TCP_ERROR:
 			err = "TCP error";
 			break;
+		case AMQP_STATUS_SOCKET_ERROR:
+			err = "Socket error";
+			break;
 		default:
 			snprintf(unknown, sizeof(unknown), "code %d", res);
 			err = unknown;
