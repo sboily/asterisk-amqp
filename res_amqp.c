@@ -1,7 +1,7 @@
 /*
  * Asterisk -- An open source telephony toolkit.
  *
- * Copyright 2015-2017 The Wazo Authors  (see the AUTHORS file)
+ * Copyright 2015-2019 The Wazo Authors  (see the AUTHORS file)
  *
  * David M. Lee, II <dlee@digium.com>
  *
@@ -96,8 +96,6 @@
 
 #define NUM_ACTIVE_CONNECTION_BUCKETS 31
 #define CHANNEL_ID 1
-
-static struct stasis_subscription *sub;
 
 static struct ao2_container *active_connections;
 
@@ -314,12 +312,16 @@ int ast_amqp_basic_publish(struct ast_amqp_connection *cxn,
 		case AMQP_STATUS_TCP_ERROR:
 			err = "TCP error";
 			break;
+		case AMQP_STATUS_SOCKET_ERROR:
+			err = "Socket error";
+			break;
 		default:
 			snprintf(unknown, sizeof(unknown), "code %d", res);
 			err = unknown;
 			break;
-		 }
+		}
 		ast_log(LOG_ERROR, "Error publishing to AMQP: %s\n", err);
+		ao2_unlink(active_connections, cxn);
 		return -1;
 	}
 }
