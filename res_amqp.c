@@ -1,7 +1,7 @@
 /*
  * Asterisk -- An open source telephony toolkit.
  *
- * Copyright 2015-2019 The Wazo Authors  (see the AUTHORS file)
+ * Copyright 2015-2020 The Wazo Authors  (see the AUTHORS file)
  *
  * David M. Lee, II <dlee@digium.com>
  *
@@ -335,8 +335,8 @@ static int load_module(void)
 		return AST_MODULE_LOAD_DECLINE;
 	}
 
-	active_connections = ao2_container_alloc(NUM_ACTIVE_CONNECTION_BUCKETS,
-		amqp_connection_hash, amqp_connection_cmp);
+	active_connections = ao2_container_alloc_hash(AO2_ALLOC_OPT_LOCK_MUTEX, 0, NUM_ACTIVE_CONNECTION_BUCKETS,
+		amqp_connection_hash, NULL, amqp_connection_cmp);
 	if (!active_connections) {
 		ast_log(LOG_ERROR, "Allocation failure\n");
 		return AST_MODULE_LOAD_FAILURE;
