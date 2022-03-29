@@ -1,6 +1,6 @@
 #
 # Makefile for Asterisk amqp resource
-# Copyright (C) 2017, Sylvain Boily
+# Copyright (C) 2017-2022 The Wazo Authors  (see the AUTHORS file)
 #
 # This program is free software, distributed under the terms of
 # the GNU General Public License Version 3. See the COPYING file
@@ -14,7 +14,7 @@ else
 	MODULES_DIR:=$(INSTALL_PREFIX)$(ASTLIBDIR)
 endif
 ifeq ($(strip $(DOCDIR)),)
-	DOCUMENTATION_DIR:=$(INSTALL_PREFIX)/usr/share/asterisk/documentation/thirdparty
+	DOCUMENTATION_DIR:=$(INSTALL_PREFIX)/var/lib/asterisk/documentation/thirdparty
 else
 	DOCUMENTATION_DIR:=$(INSTALL_PREFIX)$(DOCDIR)
 endif
