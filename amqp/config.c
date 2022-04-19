@@ -1,7 +1,7 @@
 /*
  * Asterisk -- An open source telephony toolkit.
  *
- * Copyright 2015-2017 The Wazo Authors  (see the AUTHORS file)
+ * Copyright 2015-2022 The Wazo Authors  (see the AUTHORS file)
  *
  * David M. Lee, II <dlee@digium.com>
  *
@@ -124,7 +124,7 @@ static int validate_connection_cb(void *obj, void *arg, int flags)
 
 	amqp_default_connection_info(&cxn_conf->connection_info);
 	if (amqp_parse_url(cxn_conf->parsed_url, &cxn_conf->connection_info) != AMQP_STATUS_OK) {
-		ast_log(LOG_ERROR, "%s: invalid url %s\n",
+		ast_log(LOG_ERROR, "%s: invalid URL \"%s\"\n",
 			cxn_conf->name, cxn_conf->url);
 		*validation_res = -1;
 		return -1;
