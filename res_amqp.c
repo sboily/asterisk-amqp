@@ -1,7 +1,7 @@
 /*
  * Asterisk -- An open source telephony toolkit.
  *
- * Copyright 2015-2020 The Wazo Authors  (see the AUTHORS file)
+ * Copyright 2015-2022 The Wazo Authors  (see the AUTHORS file)
  *
  * David M. Lee, II <dlee@digium.com>
  *
@@ -202,8 +202,10 @@ static struct ast_amqp_connection *amqp_connection_create(
 	}
 
 	ast_debug(3, "amqp_socket_open(%s, %d)\n", cxn_conf->connection_info.host, cxn_conf->connection_info.port);
-	if (amqp_socket_open(socket, cxn_conf->connection_info.host, cxn_conf->connection_info.port) != 0) {
-		ast_log(LOG_ERROR, "AMQP: Could not connect to %s:%d\n",
+	int status = amqp_socket_open(socket, cxn_conf->connection_info.host, cxn_conf->connection_info.port);
+	if (status != 0) {
+		ast_log(LOG_ERROR, "AMQP: Could not connect to (%s) %s:%d\n",
+			amqp_error_string2(status),
 			cxn_conf->connection_info.host,
 			cxn_conf->connection_info.port);
 		return NULL;
